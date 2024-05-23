@@ -9,7 +9,7 @@ COPY package.json yarn.lock ./
 
 # Step 4: Install Yarn and dependencies
 RUN apk add --no-cache --virtual .build-deps alpine-sdk python3 \
-    && yarn install --frozen-lockfile \
+    && yarn install --immutable\
     && apk del .build-deps
 
 # Step 5: Copy the rest of the application code
