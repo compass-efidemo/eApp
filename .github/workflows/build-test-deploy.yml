@@ -78,7 +78,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
 
-    environment: staging
     needs: build-and-push-docker-image
     steps:
       - name: 'Checkout GitHub Action'
