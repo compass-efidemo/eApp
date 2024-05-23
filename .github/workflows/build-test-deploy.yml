@@ -76,6 +76,7 @@ jobs:
           docker push ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/$APPLICATION_NAME:${{ github.sha }}
   deploy:
     runs-on: ubuntu-latest
+    environment: production
 
     environment: staging
     needs: build-and-push-docker-image
