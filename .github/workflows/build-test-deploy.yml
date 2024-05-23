@@ -9,7 +9,7 @@ on:
   #   - completed
 
 env:
-  APPLICATION_NAME: eapp
+  APPLICATION_NAME: eapp-1
 
 jobs:
   build:
