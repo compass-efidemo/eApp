@@ -24,14 +24,18 @@ jobs:
       - name: Generate Swagger JSON
         run: mkdir -p ./swagger && yarn swagger:generate
 
-      - name: Create Directory for Deployment
-        run: mkdir -p ./publish
+      - name: Push swagger documentation to Compass
+        run: |
+          curl -X PUT https://eficodeadvisory.atlassian.net/gateway/api/compass/v1/component/72d1745c-7ad9-474d-ad57-872b84eb96eb/app/564688a0-afba-45d3-b882-dbf6edbe6066/attachment/swagger-json -F file=./swagger/swagger.json --user "${{secrets.COMPASS_USER}}:${{secrets.COMPASS_TOKEN}}"
 
-      - name: Copy Swagger JSON to Publish Directory
-        run: cp swagger/swagger.json ./publish/
+      # - name: Create Directory for Deployment
+      #   run: mkdir -p ./publish
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./publish
+      # - name: Copy Swagger JSON to Publish Directory
+      #   run: cp swagger/swagger.json ./publish/
+
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./publish
