@@ -6,7 +6,12 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Get()
-  async findMany() {
+  async findMany(): Promise<{ id: string; name: string }[]> {
     return this.usersService.findMany();
+  }
+
+  @Get(':id/balance')
+  async getBalanceOfUser(): Promise<number> {
+    return 5_000;
   }
 }
