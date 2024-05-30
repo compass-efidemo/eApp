@@ -2,10 +2,14 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class UsersService {
-  findMany() {
+  async findMany(): Promise<{ id: string; name: string }[]> {
     return [
-      { id: 'a', name: 'User1' },
-      { id: 'b', name: 'User2' },
+      { id: 'a', name: 'John Doe' },
+      { id: 'b', name: 'Jane Doe' },
     ];
+  }
+
+  async findOne(id: string): Promise<{ id: string; name: string }> {
+    return { id, name: 'John Doe' };
   }
 }

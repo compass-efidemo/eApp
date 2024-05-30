@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { UsersService } from './users.service';
+import { ApiParam } from '@nestjs/swagger';
 
 @Controller('users')
 export class UsersController {
@@ -10,8 +11,11 @@ export class UsersController {
     return this.usersService.findMany();
   }
 
-  @Get(':id/balance')
-  async getBalanceOfUser(): Promise<number> {
-    return 5_000;
+  @ApiParam({
+    name: 'id',
+  })
+  @Get(':id')
+  async findOne(id: string): Promise<{ id: string; name: string }> {
+    return await this.usersService.findOne(id);
   }
 }
