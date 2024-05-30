@@ -99,4 +99,3 @@ jobs:
           registry-password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
           name: ${{ env.APPLICATION_NAME }}
           location: 'westeurope'
-          ports: 3000
