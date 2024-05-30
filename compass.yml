@@ -16,7 +16,7 @@ links:
   - name: Team Slack Channel
     type: CHAT_CHANNEL
     url: 'https://eficode.slack.com/archives/C0715M5V4P3'
-  - name: eApp
+  - name: Swagger
     type: DOCUMENT
     url: http://eapp-rg20.westeurope.azurecontainer.io/api
 relationships:
