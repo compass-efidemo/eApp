@@ -15,11 +15,10 @@ RUN apk add --no-cache --virtual .build-deps alpine-sdk python3 \
 # Step 5: Copy the rest of the application code
 COPY . .
 
+ENV PORT=80
+
 # Step 6: Build the application
 RUN yarn build
-
-# Step 7: Expose the port the app runs on
-EXPOSE 3000
 
 # Step 8: Command to run the application
 CMD ["node", "dist/main"]
