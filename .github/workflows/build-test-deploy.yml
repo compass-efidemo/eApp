@@ -10,6 +10,7 @@ on:
 
 env:
   APPLICATION_NAME: eapp
+  ENVIRONMENT: production
 
 jobs:
   build:
@@ -76,7 +77,7 @@ jobs:
           docker push ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/$APPLICATION_NAME:${{ github.sha }}
   deploy:
     runs-on: ubuntu-latest
-    environment: production
+    environment: ${{ env.ENVIRONMENT }}
 
     needs: build-and-push-docker-image
     steps:
@@ -92,7 +93,7 @@ jobs:
         uses: 'azure/aci-deploy@v1'
         with:
           resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
-          dns-name-label: ${{ env.APPLICATION_NAME }}
+          dns-name-label: ${{ env.APPLICATION_NAME }}-${{ env.ENVIRONMENT }}
           image: ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/${{ env.APPLICATION_NAME }}:${{ github.sha }}
           registry-login-server: ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}
           registry-username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
