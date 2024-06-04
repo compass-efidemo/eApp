@@ -97,5 +97,6 @@ jobs:
           registry-login-server: ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}
           registry-username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
           registry-password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
+          dns-name-label: ${{ env.APPLICATION_NAME }} 
           name: ${{ env.APPLICATION_NAME }}
           location: 'westeurope'
