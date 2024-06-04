@@ -92,11 +92,10 @@ jobs:
         uses: 'azure/aci-deploy@v1'
         with:
           resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
-          dns-name-label: ${{ secrets.AZURE_RESOURCE_GROUP }}${{ github.run_number }}
+          dns-name-label: ${{ env.APPLICATION_NAME }}
           image: ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/${{ env.APPLICATION_NAME }}:${{ github.sha }}
           registry-login-server: ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}
           registry-username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
           registry-password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
-          dns-name-label: ${{ env.APPLICATION_NAME }} 
           name: ${{ env.APPLICATION_NAME }}
           location: 'westeurope'
