@@ -77,8 +77,7 @@ jobs:
           docker push ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/$APPLICATION_NAME:${{ github.sha }}
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: ${{ env.ENVIRONMENT }}
+    environment: production
     needs: build-and-push-docker-image
     steps:
       - name: 'Checkout GitHub Action'
