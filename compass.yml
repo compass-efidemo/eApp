@@ -22,6 +22,7 @@ links:
 relationships:
   DEPENDS_ON:
     - 'ari:cloud:compass:0d58de29-7d19-42fd-bfa3-8eab124a8c86:component/ae0d5385-d63a-4c33-9878-f0faba99c382/e9db0a8c-67f4-4bd9-90c0-5608df7bddde'
+    - 'ari:cloud:compass:0d58de29-7d19-42fd-bfa3-8eab124a8c86:component/ae0d5385-d63a-4c33-9878-f0faba99c382/b05e2875-70c5-4dca-9076-fe55df5b2042' 
 labels:
   - language:typescript
   - source:github
