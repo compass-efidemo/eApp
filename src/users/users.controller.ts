@@ -4,7 +4,7 @@ import { ApiParam } from '@nestjs/swagger';
 
 @Controller('users')
 export class UsersController {
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService) { }
 
   @Get()
   async findMany(): Promise<{ id: string; name: string }[]> {
